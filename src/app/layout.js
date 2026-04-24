@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono, Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
+import Providers from "@/lib/provider/page";
 
 
 const poppins = Poppins({
@@ -26,7 +27,9 @@ export default function RootLayout({ children }) {
     >
       <body className={`${poppins.className}min-h-full flex flex-col`}>
         
-        {children}
+        <Providers>
+          {children}
+        </Providers>
         </body>
     </html>
   );
