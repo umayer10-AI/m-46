@@ -1,36 +1,22 @@
-"use client"
 import { Data } from '@/context/Context';
 import React, { useContext } from 'react';
+import CatagoriList from './CatagoriList';
 
-const categories = [
-  "Breaking News",
-  "Politics",
-  "Sports",
-  "Technology",
-  "Entertainment",
-  "Business",
-  "Health",
-  "Science",
-  "World",
-  "Education",
-];
+const allData = async () => {
+    const res = await fetch("https://openapi.programming-hero.com/api/news/categories")
+    return res.json()
+}
 
-const Categories = () => {
+const Categories = async () => {
 
-    const {cat,setC} = useContext(Data)
+    const f = await allData()
+    const data = f.data.news_category
+    console.log(f.data.news_category)
 
     return (
         <div>
-            <h2 className='font-bold text-xl'>All Caterogy</h2>
-            <div className='flex flex-col'>
-                {
-                    categories.map((v,i) => (
-                        <h2
-                        onClick={() => setC(v)}
-                         key={i} className={`font-semibold btn ${cat===v? "btn-warning": "text-gray-500"}`}>{v}</h2>
-                    ))
-                }
-            </div>
+            <h2 className='font-bold text-xl mb-5'>All Caterogy</h2>
+            <CatagoriList p={data}></CatagoriList>
         </div>
     );
 };
