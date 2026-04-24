@@ -13,7 +13,7 @@ const page = async ({params}) => {
       {/* <h2 className='text-3xl font-bold text-center my-10'>Home Page</h2> */}
       <Categories></Categories>
       <div className='col-span-3'>
-        <MidNews></MidNews>
+        <MidNews id={id}></MidNews>
       </div>
       <RightSide></RightSide>
     </div>

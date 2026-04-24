@@ -10,7 +10,7 @@ const CatagoriList = ({p}) => {
     return (
         <div>
             <div className='flex flex-col'>
-                {/* <Link href={`/category/${v.category_id}`} className={`font-semibold btn btn-info text-white`}>All News</Link> */}
+                
                 {
                     p.map(v => (
                         <Link href={`/category/${v.category_id}`}
@@ -18,7 +18,7 @@ const CatagoriList = ({p}) => {
                         onClick={() => setC(v)}
                           className={`font-semibold btn ${cat===v && "btn-warning"}`}>{v.category_name}
                            
-                          </Link>
+                        </Link>
                     ))
                 }
             </div>

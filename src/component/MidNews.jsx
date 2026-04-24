@@ -7,14 +7,16 @@ const allData = async (id) => {
   );
   return res.json();
 };
-const MidNews = async () => {
-    // const {}
-  const f = await allData("04");
+const MidNews = async ({id}) => {
+    // console.log(id)
+  const f = await allData(id);
   console.log(f.data);
 
   return (
     <div>
-      {f.data.map((v,i) => (
+      {
+        f.data.length===0 ? <h2 className="text-4xl font-bold">News Not Found</h2>
+        : f.data.map((v,i) => (
         <div key={i} className="bg-white rounded-xl shadow-md p-4 space-y-4">
 
       {/* Author */}
@@ -28,7 +30,7 @@ const MidNews = async () => {
           <div>
             <h2 className="font-semibold">{v.author.name}</h2>
             <p className="text-sm text-gray-400">
-              {v.author.published_date.split(" ")[0]}
+              {v.author.published_date}
             </p>
           </div>
         </div>
@@ -82,7 +84,8 @@ const MidNews = async () => {
         </div>
       </div>
     </div>
-      ))}
+      ))
+      }
     </div>
   );
 };
