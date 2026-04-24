@@ -3,7 +3,7 @@ import { HiUserCircle } from 'react-icons/hi';
 
 const Navbar = () => {
     return (
-        <div>
+        <div className='flex justify-between items-center max-w-[90%] mx-auto my-5'>
             <div>
 
             </div>
@@ -12,8 +12,9 @@ const Navbar = () => {
                 <h2 className='btn'>About</h2>
                 <h2 className='btn'>Career</h2>
             </div>
-            <div>
-                <h2><HiUserCircle /></h2>
+            <div className='flex items-center gap-2'>
+                <h2 className='text-4xl'><HiUserCircle /></h2>
+                <h2 className='btn bg-black text-white font-bold px-8'>Login</h2>
             </div>
         </div>
     );
