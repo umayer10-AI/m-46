@@ -1,5 +1,6 @@
 "use client"
 import { Data } from '@/context/Context';
+import Link from 'next/link';
 import React, { useContext } from 'react';
 
 const CatagoriList = ({p}) => {
@@ -9,13 +10,15 @@ const CatagoriList = ({p}) => {
     return (
         <div>
             <div className='flex flex-col'>
-                <h2 className={`font-semibold btn btn-info text-white`}>National News</h2>
+                {/* <Link href={`/category/${v.category_id}`} className={`font-semibold btn btn-info text-white`}>All News</Link> */}
                 {
                     p.map(v => (
-                        <h2
+                        <Link href={`/category/${v.category_id}`}
                         key={v.category_id}
                         onClick={() => setC(v)}
-                          className={`font-semibold btn ${cat===v && "btn-warning"}`}>{v.category_name}</h2>
+                          className={`font-semibold btn ${cat===v && "btn-warning"}`}>{v.category_name}
+                           
+                          </Link>
                     ))
                 }
             </div>
