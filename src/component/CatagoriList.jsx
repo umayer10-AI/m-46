@@ -9,12 +9,13 @@ const CatagoriList = ({p}) => {
     return (
         <div>
             <div className='flex flex-col'>
+                <h2 className={`font-semibold btn btn-info text-white`}>National News</h2>
                 {
                     p.map(v => (
                         <h2
                         key={v.category_id}
                         onClick={() => setC(v)}
-                          className={`font-semibold btn ${cat===v? "btn-warning": "text-gray-500"}`}>{v.category_name}</h2>
+                          className={`font-semibold btn ${cat===v && "btn-warning"}`}>{v.category_name}</h2>
                     ))
                 }
             </div>
