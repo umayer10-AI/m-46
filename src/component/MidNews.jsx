@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { FaEye, FaStar } from "react-icons/fa";
 
@@ -13,7 +14,7 @@ const MidNews = async ({id}) => {
   console.log(f.data);
 
   return (
-    <div>
+    <div className="flex flex-col gap-5">
       {
         f.data.length===0 ? <h2 className="text-4xl font-bold">News Not Found</h2>
         : f.data.map((v,i) => (
@@ -76,6 +77,7 @@ const MidNews = async ({id}) => {
             {v.rating.number}
           </span>
         </div>
+        <Link href={`/news/${v._id}`} className="btn btn-primary">See Details</Link>
 
         {/* views */}
         <div className="flex items-center gap-2 text-gray-500">

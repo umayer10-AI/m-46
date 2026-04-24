@@ -15,8 +15,8 @@ const CatagoriList = ({p}) => {
                     p.map(v => (
                         <Link href={`/category/${v.category_id}`}
                         key={v.category_id}
-                        onClick={() => setC(v)}
-                          className={`font-semibold btn ${cat===v && "btn-warning"}`}>{v.category_name}
+                        onClick={() => setC(v.category_id)}
+                          className={`font-semibold btn ${cat===v.category_id && "btn-warning"}`}>{v.category_name}
                            
                         </Link>
                     ))
